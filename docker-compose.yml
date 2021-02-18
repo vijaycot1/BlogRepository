@@ -1,0 +1,62 @@
+version: '3.4'
+
+services:
+  apigateway:
+   # image: ${DOCKER_REGISTRY-}apigateway
+    build:
+      context: .
+      dockerfile: APIGateway/Dockerfile
+    networks:
+        - zydusnetwork
+        
+    ports:
+        - '9002:80'
+
+  # userservice:
+  #  # image: ${DOCKER_REGISTRY-}userservice
+  #   build:
+  #     context: .
+  #     dockerfile: UserService/Dockerfile
+  #   networks:
+  #      - zydusnetwork
+  #   ports:
+  #       - '5002:80'
+
+  # angularweb:
+  #   build:
+  #     context: .
+  #     dockerfile: ZydusUI/Dockerfile
+  #   networks:
+  #      - zydusnetwork
+  #   ports:
+  #       - '4002:80' 
+  
+  
+  # elasticsearch:
+  #  image: docker.elastic.co/elasticsearch/elasticsearch:6.2.4
+  #  container_name: elasticsearch
+  #  ports:
+  #   - "9200:9200"
+  # # volumes:
+  #  # - elasticsearch-data:/usr/share/elasticsearch/data
+  #  networks:
+  #   - zydusnetwork
+
+  # kibana:
+  #  image: docker.elastic.co/kibana/kibana:6.2.4
+  #  container_name: kibana
+  #  ports:
+  #   - "5601:5601"
+  #  depends_on:
+  #   - elasticsearch
+  #  networks:
+  #   - zydusnetwork
+
+  
+  
+#volumes:
+#  elasticsearch-data:
+
+networks:
+    zydusnetwork:
+        
